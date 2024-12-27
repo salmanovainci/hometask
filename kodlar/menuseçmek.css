@@ -1,0 +1,35 @@
+.menu{
+    background-color: rgb(197, 241, 227);
+    padding: 2px;
+    a{
+        color: rgb(0, 0, 0);
+    }
+}
+
+.menu ul li{
+    display: inline-block;
+    width: 100px;
+    background-color: rgb(119, 184, 92);
+    padding: 5px 10px;
+    position: relative;
+    border-bottom: 1px dotted black;
+}
+
+.submenu{
+    display: none;
+}
+
+.menu ul li.nested:hover > .submenu{
+    display: block;
+    z-index: 999;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 28px;
+}
+
+.menu ul li.nested:hover > .submenu .submenu{
+    left: 120px;
+    top: 0;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+<style>
+ #menu ul li {
+    display: inline-block;
+     border: 1px solid black;
+     background-color: #d6fffc;
+    padding : 5px 10px;
+     text-align: center;
+     margin: 10px;
+     padding-left: 10px;
+ }
+ #arrow div{
+     display: inline-block;
+     float: left;
+     margin: 5px;
+     padding:5px  10px;
+     width: 70px;
+     text-align: center;
+ }
+</style>
+
+
+</head>
+<body>
+<div id="newMenu">
+    <label>Add New Menu</label>
+    <input id="addValue" type="text">
+ <input type="button" value="Add" onclick="addMenu()">
+
+</div>
+<div id="menu"></div>
+
+
+<script type="text/javascript">
+    let arrMenu= ['Menu 1', 'Menu 2', 'Menu 3'];
+    function getMenu(){
+        let menuHtml='<ul>';
+        let arrowHtml='<div id="arrow">'
+        for(let i=0;i<arrMenu.length;i++){
+            menuHtml+='<li>'+arrMenu[i]+'</li>';
+            if(i==0){
+                arrowHtml+='<div><a  href="#" onclick="moveRight('+i+')"> -> </a></div> '
+            }
+            else if(i==arrMenu.length-1){
+                arrowHtml+='<div><a  href="#" onclick="moveLeft('+i+')"> <- </a></div> '
+            }
+            else{
+                arrowHtml+=' <div><a href="#" onclick="moveLeft('+i+')"> <- </a>|<a href="#" onclick="moveRight('+i+')"> -> </a></div> '
+            }
+        }
+        menuHtml+='</ul>';
+        return menuHtml + arrowHtml ;
+
+    }
+
+    function showMenu(){
+        console.log(arrMenu);
+        let menu= document.getElementById('menu');
+        menu.innerHTML=getMenu();
+
+    }
+ showMenu();
+    function addMenu(){
+        let addValue= document.getElementById('addValue');
+        arrMenu.push(addValue.value);
+        addValue.value='';
+        showMenu();
+    }
+    function moveLeft(indexElment){
+        let currentMenu=arrMenu[indexElment];
+        let replaceMenu=arrMenu[indexElment -1];
+        arrMenu.splice(indexElment-1,2, currentMenu,replaceMenu);
+        showMenu();
+    }
+    function moveRight(indexElment){
+        let currentMenu=arrMenu[indexElment];
+        let replaceMenu=arrMenu[indexElment +1];
+        arrMenu.splice(indexElment,2,replaceMenu,currentMenu);
+        showMenu();
+
+    }
+    showMenu()
+</script>
+</body>

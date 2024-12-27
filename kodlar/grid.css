@@ -1,0 +1,38 @@
+.container{
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: 100px auto 50px;
+    grid-gap: 5px;
+    grid-template-areas:"a a a a a"
+                        "b d d d c"
+                        "b d d d c"
+                        "e e e e e"
+}
+
+[class ^="block-"]{
+    border: 1px dashed green;
+    border-radius: 10px;
+    background-color: rgb(171, 209, 174)
+
+}
+
+.block-1{
+    grid-area: a;
+}
+
+.block-2{
+    grid-area: b;
+}
+
+.block-3{
+    grid-area: d;
+}
+
+.block-4{
+    grid-area: c;
+}
+
+.block-5{
+    grid-area: e;
+}

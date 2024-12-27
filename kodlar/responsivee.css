@@ -1,0 +1,42 @@
+.* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    overflow: hidden;
+    padding: 20px;
+}
+.test{
+    border: 3px solid red;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    padding: 20px;
+    width: 23%;
+    float: left;
+    margin: 10px 1%;
+    text-align:center ;
+
+}
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+@media (max-width: 800px) {
+    .card {
+        width: 48%;
+        margin: 10px 1%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .card {
+       
+        width: 100%;
+        margin: 10px 0;
+    }
+}
